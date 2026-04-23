@@ -12,9 +12,6 @@
 #
 name: Docker
 
-env:
-  GHCR_IMAGE: ghcr.io/0xTriboulet/noseyparker
-
 on:
   push:
     branches: [ "main" ]
@@ -39,28 +36,28 @@ jobs:
           platform: linux/amd64
           platform-pair: linux-amd64
           dockerfile: Dockerfile
-          image: ${{ env.GHCR_IMAGE }}
+          image: ghcr.io/0xTriboulet/noseyparker
           runs-on: ubuntu-22.04
 
         - base: debian
           platform: linux/arm64
           platform-pair: linux-arm64
           dockerfile: Dockerfile
-          image: ${{ env.GHCR_IMAGE }}
+          image: ghcr.io/0xTriboulet/noseyparker
           runs-on: ubuntu-22.04-arm64-8-core
 
         - base: alpine
           platform: linux/amd64
           platform-pair: linux-amd64
           dockerfile: Dockerfile.alpine
-          image: ${{ env.GHCR_IMAGE }}-alpine
+          image: ghcr.io/0xTriboulet/noseyparker-alpine
           runs-on: ubuntu-22.04
 
         - base: alpine
           platform: linux/arm64
           platform-pair: linux-arm64
           dockerfile: Dockerfile.alpine
-          image: ${{ env.GHCR_IMAGE }}-alpine
+          image: ghcr.io/0xTriboulet/noseyparker-alpine
           runs-on: ubuntu-22.04-arm64-8-core
 
     name: Docker (${{ matrix.platform }} ${{ matrix.base }})
@@ -129,10 +126,10 @@ jobs:
       matrix:
         include:
         - base: debian
-          image: ${{ env.GHCR_IMAGE }}
+          image: ghcr.io/0xTriboulet/noseyparker
 
         - base: alpine
-          image: ${{ env.GHCR_IMAGE }}-alpine
+          image: ghcr.io/0xTriboulet/noseyparker-alpine
 
 
     runs-on: ubuntu-latest
