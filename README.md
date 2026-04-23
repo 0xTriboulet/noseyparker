@@ -1,6 +1,7 @@
-# Nosey Parker is now Replaced by Titus. Nosey Parker is Officially Retired
+# Nosey Parker (0xTriboulet fork)
 
-See our announcement post https://www.praetorian.com/blog/titus-open-source-secret-scanner/. The Titus Repo can be found at https://github.com/praetorian-inc/titus
+This repository is an actively maintained fork of Nosey Parker for continued development and releases.
+The canonical fork repository is: <https://github.com/0xTriboulet/noseyparker>
 
 ## Overview
 
@@ -12,7 +13,7 @@ It has found secrets in hundreds of offensive security engagements at [Praetoria
 
 **Key features:**
 - **Flexiblity:** It natively scans files, directories, GitHub, and Git history, and has an extensible input enumeration mechanism
-- **Field-tested rules:** It uses regular expressions with [188 rules](crates/noseyparker/data/default/builtin/rules) chosen for high precision based on feedback from security engineers
+- **Field-tested rules:** It uses regular expressions with a large built-in ruleset chosen for high precision based on feedback from security engineers
 - **Signal-to-noise:** It deduplicates matches that share the same secret, reducing review burden by 10-1000x or more
 - **Speed & scalability:** it can scan at GB/s on a multicore system, and has scanned inputs as large as 20TB during security engagements
 
@@ -33,13 +34,13 @@ brew install noseyparker
 
 ### Prebuilt binaries
 
-The [latest release page](https://github.com/praetorian-inc/noseyparker/releases/latest) contains prebuilt binaries for x86_64/aarch64 Linux and macOS.
+The [latest release page](https://github.com/0xTriboulet/noseyparker/releases/latest) contains prebuilt binaries for x86_64/aarch64 Linux and macOS.
 
 
 ### Docker: x86_64/aarch64
 
 ```shell
-docker pull ghcr.io/praetorian-inc/noseyparker:latest
+docker pull ghcr.io/0xTriboulet/noseyparker:latest
 ```
 
 The **most recent commit** is also available via the `main` tag.
@@ -47,7 +48,7 @@ The **most recent commit** is also available via the `main` tag.
 ### Docker: x86_64/aarch64, Alpine base:
 
 ```shell
-docker pull ghcr.io/praetorian-inc/noseyparker-alpine:latest
+docker pull ghcr.io/0xTriboulet/noseyparker-alpine:latest
 ```
 
 The **most recent commit** is also available via the `main` tag.
@@ -60,7 +61,7 @@ The **most recent commit** is also available via the `main` tag.
 
 ### Windows
 
-Nosey Parker does not build natively on Windows ([#121](https://github.com/praetorian-inc/noseyparker/issues/121)).
+Nosey Parker does not build natively on Windows.
 It _is_ possible to run on Windows using [WSL1](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) and the native Linux release.
 
 
@@ -100,7 +101,7 @@ More detailed help is available with the `help` command or long-form `--help` op
 The prebuilt releases also include manpages that collect the command-line help in one place.
 These manpages converted into Markdown format are also included in the repository [here](docs/v0.17.0/man/man1).
 
-If you have a question that's not answered by this documentation, please [start a discussion](https://github.com/praetorian-inc/noseyparker/discussions/new/choose).
+If you have a question that's not answered by this documentation, please [start a discussion](https://github.com/0xTriboulet/noseyparker/discussions/new/choose).
 
 
 ## Terminology and data model
@@ -143,7 +144,7 @@ This is Nosey Parker's top-level unit of reporting.
 When using the Docker image, replace `noseyparker` in the following commands with a Docker invocation that uses a mounted volume:
 
 ```shell
-docker run -v "$PWD":/scan ghcr.io/praetorian-inc/noseyparker:latest <ARGS>
+docker run -v "$PWD":/scan ghcr.io/0xTriboulet/noseyparker:latest <ARGS>
 ```
 
 The Docker container runs with `/scan` as its working directory, so mounting `$PWD` at `/scan` in the container will make tab completion and relative paths in your command-line invocation work.
@@ -179,7 +180,7 @@ See `noseyparker help scan` for more details.
 
 For example, to scan the Nosey Parker repo itself:
 ```
-noseyparker scan --datastore np.noseyparker --git-url https://github.com/praetorian-inc/noseyparker
+noseyparker scan --datastore np.noseyparker --git-url https://github.com/0xTriboulet/noseyparker
 ```
 
 See `noseyparker help scan` for more details.
@@ -273,12 +274,12 @@ If you have an integration you'd like to share that's not listed here, please cr
 
 ## Contributing
 
-Ask questions or share ideas in the [Discussions](https://github.com/praetorian-inc/noseyparker/discussions) area.
+Ask questions or share ideas in the [Discussions](https://github.com/0xTriboulet/noseyparker/discussions) area.
 
 Contributions are welcome, especially new regex rules.
 Developing new regex rules is detailed in a [separate document](docs/RULES.md).
 
-If you are considering making significant code changes, please [open an issue](https://github.com/praetorian-inc/noseyparker/issues/new) or [start a discussion](https://github.com/praetorian-inc/noseyparker/discussions/new/choose) first.
+If you are considering making significant code changes, please [open an issue](https://github.com/0xTriboulet/noseyparker/issues/new) or [start a discussion](https://github.com/0xTriboulet/noseyparker/discussions/new/choose) first.
 
 This project has a number of [pre-commit](https://pre-commit.com/) hooks enabled that you are encouraged to use.
 To install them in your local repo, make sure you have `pre-commit` installed and run:

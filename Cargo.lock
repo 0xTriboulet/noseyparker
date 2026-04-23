@@ -3028,7 +3028,7 @@ dependencies = [
 
 [[package]]
 name = "noseyparker-cli"
-version = "0.25.0-dev"
+version = "0.25.0"
 dependencies = [
  "anyhow",
  "arrow-array",

@@ -12,6 +12,9 @@
 #
 name: Docker
 
+env:
+  GHCR_IMAGE: ghcr.io/0xTriboulet/noseyparker
+
 on:
   push:
     branches: [ "main" ]
@@ -19,9 +22,8 @@ on:
     # Run when release tags are created
     tags: [ "v*.*.*" ]
 
-  # Do not run on pull requests; the Docker registry permissions are not set up
-  # to work except for with the canonical `noseyparker` repo. Running from pull
-  # requests from forks will fail.
+  # Do not run on pull requests by default; forks/PR contexts often do not have
+  # package publish permissions.
   #
   # pull_request:
   #   branches: [ "main" ]
@@ -37,28 +39,28 @@ jobs:
           platform: linux/amd64
           platform-pair: linux-amd64
           dockerfile: Dockerfile
-          image: ghcr.io/${{ github.repository }}
+          image: ${{ env.GHCR_IMAGE }}
           runs-on: ubuntu-22.04
 
         - base: debian
           platform: linux/arm64
           platform-pair: linux-arm64
           dockerfile: Dockerfile
-          image: ghcr.io/${{ github.repository }}
+          image: ${{ env.GHCR_IMAGE }}
           runs-on: ubuntu-22.04-arm64-8-core
 
         - base: alpine
           platform: linux/amd64
           platform-pair: linux-amd64
           dockerfile: Dockerfile.alpine
-          image: ghcr.io/${{ github.repository }}-alpine
+          image: ${{ env.GHCR_IMAGE }}-alpine
           runs-on: ubuntu-22.04
 
         - base: alpine
           platform: linux/arm64
           platform-pair: linux-arm64
           dockerfile: Dockerfile.alpine
-          image: ghcr.io/${{ github.repository }}-alpine
+          image: ${{ env.GHCR_IMAGE }}-alpine
           runs-on: ubuntu-22.04-arm64-8-core
 
     name: Docker (${{ matrix.platform }} ${{ matrix.base }})
@@ -127,10 +129,10 @@ jobs:
       matrix:
         include:
         - base: debian
-          image: ghcr.io/${{ github.repository }}
+          image: ${{ env.GHCR_IMAGE }}
 
         - base: alpine
-          image: ghcr.io/${{ github.repository }}-alpine
+          image: ${{ env.GHCR_IMAGE }}-alpine
 
 
     runs-on: ubuntu-latest

@@ -1,6 +1,6 @@
 # Nosey Parker Changelog
 
-This is the changelog for [Nosey Parker](https://github.com/praetorian-inc/noseyparker).
+This is the changelog for [Nosey Parker](https://github.com/0xTriboulet/noseyparker).
 All notable changes to the project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project aspires to use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -9,19 +9,29 @@ Note that the use of semantic versioning applies only to the command-line interf
 
 ## Unreleased
 
+No changes yet.
+
+
+## [v0.25.0](https://github.com/0xTriboulet/noseyparker/releases/v0.25.0) (2026-04-23)
+
 ### Additions
 - New rules:
 
     - `Atlassian Cloud API Token` ([#275](https://github.com/praetorian-inc/noseyparker/pull/275))
     - `Azure DevOps Personal Access Token` ([#272](https://github.com/praetorian-inc/noseyparker/pull/272))
     - `Generic Secret` x2 ([#271](https://github.com/praetorian-inc/noseyparker/pull/271))
+    - `OpenAI Project API Key` ([#284](https://github.com/praetorian-inc/noseyparker/pull/284))
+    - `OpenAI Project API Key v2` ([#284](https://github.com/praetorian-inc/noseyparker/pull/284))
+    - `OpenAI Admin API Key` ([#284](https://github.com/praetorian-inc/noseyparker/pull/284))
+    - `OpenAI Project Service Account` ([#284](https://github.com/praetorian-inc/noseyparker/pull/284))
 
-- Rule modifications:
+- The `scan` command now supports `--ignore-secrets=FILE` for secret-value suppression, and includes a default ignored-secrets list for common AWS example keys ([#287](https://github.com/praetorian-inc/noseyparker/pull/287)).
 
-    - `Azure Personal Access Token` has been renamed to `Azure DevOps Personal Access Token` and has gained a description ([#272](https://github.com/praetorian-inc/noseyparker/pull/272))
+### Changes
+- `Azure Personal Access Token` has been renamed to `Azure DevOps Personal Access Token` and has gained a description ([#272](https://github.com/praetorian-inc/noseyparker/pull/272)).
+- Fork release/documentation paths now point to `0xTriboulet/noseyparker` for release consumption and contribution workflow.
 
-
-## [v0.24.0](https://github.com/praetorian-inc/noseyparker/releases/v0.24.0) (2025-05-08)
+## [v0.24.0](https://github.com/0xTriboulet/noseyparker/releases/v0.24.0) (2025-05-08)
 
 ### Additions
 - New rules:
@@ -55,7 +65,7 @@ Note that the use of semantic versioning applies only to the command-line interf
 - CI jobs that run on Ubuntu 20.04 have been replaced with Ubuntu 22.04, now that Ubuntu 20.04 runners have been removed from GitHub Actions ([#267](https://github.com/praetorian-inc/noseyparker/pull/267))
 
 
-## [v0.23.0](https://github.com/praetorian-inc/noseyparker/releases/v0.23.0) (2025-01-28)
+## [v0.23.0](https://github.com/0xTriboulet/noseyparker/releases/v0.23.0) (2025-01-28)
 
 ### Additions
 - New rules:
@@ -71,7 +81,7 @@ Note that the use of semantic versioning applies only to the command-line interf
 - Rerunning a scan with the same input and datastore no longer crashes with a `UNIQUE constraint failed` error.
 
 
-## [v0.22.0](https://github.com/praetorian-inc/noseyparker/releases/v0.22.0) (2024-12-20)
+## [v0.22.0](https://github.com/0xTriboulet/noseyparker/releases/v0.22.0) (2024-12-20)
 
 ### Breaking Changes
 - The JSON output format from `report` has changed slightly ([#236](https://github.com/praetorian-inc/noseyparker/pull/236)).
@@ -133,7 +143,7 @@ Note that the use of semantic versioning applies only to the command-line interf
   The default value is 3.
 
 
-## [v0.21.0](https://github.com/praetorian-inc/noseyparker/releases/v0.21.0) (2024-11-20)
+## [v0.21.0](https://github.com/0xTriboulet/noseyparker/releases/v0.21.0) (2024-11-20)
 
 ### Changes
 - Directories that appear to be Nosey Parker datastore directories are now skipped from scanning ([#224](https://github.com/praetorian-inc/noseyparker/pull/224)).
@@ -170,7 +180,7 @@ Note that the use of semantic versioning applies only to the command-line interf
   A new `parquet` format is available and is the default when the `parquet` feature is enabled (which it is unless you build with `--no-default-features`).
 
 
-## [v0.20.0](https://github.com/praetorian-inc/noseyparker/releases/v0.20.0) (2024-10-04)
+## [v0.20.0](https://github.com/0xTriboulet/noseyparker/releases/v0.20.0) (2024-10-04)
 
 ### Overview
 The most significant feature addition to this release is a new "extensible enumerator" mechanism, which makes it possible to scan content from arbitrary sources with Nosey Parker without having to write it to the filesystem.
@@ -227,7 +237,7 @@ Happy secret hunting!
   Previously, one of the pathnames would be arbitrarily selected.
 
 
-## [v0.19.0](https://github.com/praetorian-inc/noseyparker/releases/v0.19.0) (2024-07-30)
+## [v0.19.0](https://github.com/0xTriboulet/noseyparker/releases/v0.19.0) (2024-07-30)
 
 ### Additions
 - The `scan` and `github repos list` commands offer a new `--github-repo-type={all,source,fork}` option to select a subset of repositories ([#204](https://github.com/praetorian-inc/noseyparker/pull/204)).
@@ -285,7 +295,7 @@ Happy secret hunting!
   This is necessary to support C-string literals in the `rusqlite` crate.
 
 
-## [v0.18.1](https://github.com/praetorian-inc/noseyparker/releases/v0.18.1) (2024-07-12)
+## [v0.18.1](https://github.com/0xTriboulet/noseyparker/releases/v0.18.1) (2024-07-12)
 
 ### Fixes
 - Nosey Parker no longer crashes upon startup when running in environments with less than 4 GiB of RAM ([#202](https://github.com/praetorian-inc/noseyparker/pull/202)).
@@ -293,7 +303,7 @@ Happy secret hunting!
 - The `Base64-PEM-Encoded Private Key` rule has been refined to reduce false positives and avoid a rare performance pitfall.
 
 
-## [v0.18.0](https://github.com/praetorian-inc/noseyparker/releases/v0.18.0) (2024-06-27)
+## [v0.18.0](https://github.com/0xTriboulet/noseyparker/releases/v0.18.0) (2024-06-27)
 
 ### Additions
 - The README now includes several animated GIFs that demonstrate simple example use cases ([#154](https://github.com/praetorian-inc/noseyparker/pull/154)).
@@ -362,7 +372,7 @@ Happy secret hunting!
 - The `--ignore-certs` command-line option is now a global option and can be specified anywhere on the command line.
 
 
-## [v0.17.0](https://github.com/praetorian-inc/noseyparker/releases/v0.17.0) (2024-03-05)
+## [v0.17.0](https://github.com/0xTriboulet/noseyparker/releases/v0.17.0) (2024-03-05)
 
 ### Additions
 - A new `--ignore-certs` command-line option has been added to the `scan` and `github` commands.
@@ -462,7 +472,7 @@ Happy secret hunting!
 - The `shell-completions` command has been moved from the top level to a subcommand of `generate`.
 
 
-## [v0.16.0](https://github.com/praetorian-inc/noseyparker/releases/v0.16.0) (2023-12-06)
+## [v0.16.0](https://github.com/0xTriboulet/noseyparker/releases/v0.16.0) (2023-12-06)
 
 ### Additions
 - The `scan` command now supports a new `--copy-blobs={all,matching,none}` parameter.
@@ -558,7 +568,7 @@ Happy secret hunting!
 - Log messages are written to stderr instead of stdout ([#97](https://github.com/praetorian-inc/noseyparker/issues/97)).
 
 
-## [v0.15.0](https://github.com/praetorian-inc/noseyparker/releases/v0.15.0) (2023-10-12)
+## [v0.15.0](https://github.com/0xTriboulet/noseyparker/releases/v0.15.0) (2023-10-12)
 
 ### Additions
 - A default value (`datastore.np`) is now set for commands that take a datastore parameter ([#74](https://github.com/praetorian-inc/noseyparker/issues/74)).
@@ -603,7 +613,7 @@ Happy secret hunting!
 - Fixed a bug in the `report` command when `--format=sarif` is used which caused some metadata to be unintentionally omitted from the output.
 
 
-## [v0.14.0](https://github.com/praetorian-inc/noseyparker/releases/v0.14.0) (2023-08-17)
+## [v0.14.0](https://github.com/0xTriboulet/noseyparker/releases/v0.14.0) (2023-08-17)
 
 A [prebuilt multiplatform Docker image](https://github.com/praetorian-inc/noseyparker/pkgs/container/noseyparker/119700654?tag=v0.14.0) for this release is available for x86_64 and ARM64 architectures:
 ```
@@ -684,7 +694,7 @@ docker pull ghcr.io/praetorian-inc/noseyparker:v0.14.0
 - The `scan` command now correctly reports the number of newly-seen matches when reusing an existing datastore.
 
 
-## [v0.13.0](https://github.com/praetorian-inc/noseyparker/releases/v0.13.0) (2023-04-24)
+## [v0.13.0](https://github.com/0xTriboulet/noseyparker/releases/v0.13.0) (2023-04-24)
 
 A [prebuilt multiplatform Docker image](https://github.com/praetorian-inc/noseyparker/pkgs/container/noseyparker/88043263?tag=v0.13.0) for this release is available for x86_64 and ARM64 architectures:
 ```
@@ -722,7 +732,7 @@ docker pull ghcr.io/praetorian-inc/noseyparker:v0.13.0
 - The Docker image now has the `git` binary installed. Previously this was missing, causing the `scan` command to fail when the `--git-url`, `--github-user`, or `--github-organization` input specifiers were used ([#38](https://github.com/praetorian-inc/noseyparker/issues/38)).
 
 
-## [v0.12.0](https://github.com/praetorian-inc/noseyparker/releases/v0.12.0) (2023-03-02)
+## [v0.12.0](https://github.com/0xTriboulet/noseyparker/releases/v0.12.0) (2023-03-02)
 
 A [prebuilt Docker image](https://github.com/praetorian-inc/noseyparker/pkgs/container/noseyparker/74541424?tag=v0.12.0) for this release is available for x86_64 architectures:
 ```
@@ -803,7 +813,7 @@ docker pull ghcr.io/praetorian-inc/noseyparker:v0.12.0
   This ensures that files used internally for Nosey Parker's operation are not inadvertently scanned ([#32](https://github.com/praetorian-inc/noseyparker/issues/32)).
 
 
-## [v0.11.0](https://github.com/praetorian-inc/noseyparker/releases/v0.11.0) (2022-12-30)
+## [v0.11.0](https://github.com/0xTriboulet/noseyparker/releases/v0.11.0) (2022-12-30)
 
 This is the first released version of Nosey Parker.
 Its `scan`, `summarize`, and `report` commands are functional.

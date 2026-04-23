@@ -22,3 +22,7 @@ gha-creds-*.json
 
 # Git worktrees
 .worktrees/
+
+# Fork-local contributor and review notes
+AGENTS.md
+notes/

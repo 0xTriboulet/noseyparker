@@ -3,11 +3,11 @@ resolver = "3"
 members = ["crates/*"]
 
 [workspace.package]
-version = "0.25.0-dev"
+version = "0.25.0"
 authors = ["Brad Larsen <bradford.larsen@praetorian.com>", "Rishabh Ahlawat <rishabh.ahlawat@praetorian.com>"]
 edition = "2024"
 rust-version = "1.85"
-repository = "https://github.com/praetorian-inc/noseyparker"
+repository = "https://github.com/0xTriboulet/noseyparker"
 license = "Apache-2.0"
 publish = false
 
