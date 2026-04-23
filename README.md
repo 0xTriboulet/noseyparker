@@ -1,7 +1,6 @@
-# Nosey Parker (0xTriboulet fork)
+# Nosey Parker
 
-This repository is an actively maintained fork of Nosey Parker for continued development and releases.
-The canonical fork repository is: <https://github.com/0xTriboulet/noseyparker>
+This repository is an actively maintained fork of [Nosey Parker](https://github.com/praetorian-inc/noseyparker) for continued development and releases.
 
 ## Overview
 
