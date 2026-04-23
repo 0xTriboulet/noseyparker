@@ -41,6 +41,7 @@ RUN apt-get update && \
     apt-get clean
 
 COPY --from=planner /noseyparker/recipe.json recipe.json
+COPY --from=planner /noseyparker/Cargo.lock Cargo.lock
 
 # Build dependencies - this is the caching Docker layer
 # Arguments match arguments specified in `create-release.zsh` script
