@@ -41,16 +41,15 @@ RUN apt-get update && \
     apt-get clean
 
 COPY --from=planner /noseyparker/recipe.json recipe.json
-COPY --from=planner /noseyparker/Cargo.lock Cargo.lock
+COPY --from=planner /noseyparker/Cargo.lock.chef Cargo.lock
 
 # Build dependencies - this is the caching Docker layer
 # Arguments match arguments specified in `create-release.zsh` script
-#
-# NOTE: `cargo-chef` reconstructs a minimal workspace from `recipe.json`; with
-# current toolchain/workspace metadata this can require lockfile refreshes in
-# the chef workspace. Keep reproducibility enforced in the final build step
-# (`create-release.zsh` uses `cargo build --locked`).
-RUN cargo chef cook --profile release --features "release" --recipe-path recipe.json
+# `cargo-chef` reconstructs the workspace skeleton; normalize the lockfile with
+# Cargo before enforcing `--locked` for the actual dependency build.
+RUN cargo chef cook --no-build --profile release --features "release" --recipe-path recipe.json && \
+    cargo metadata --format-version 1 >/dev/null && \
+    cargo build --locked --profile release --features "release"
 
 COPY . .
 
